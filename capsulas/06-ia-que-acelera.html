@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>06 · IA que acelera sin abrir huecos · Cápsulas de seguridad digital</title>
+<meta name="description" content="Buenos casos de uso de IA, revisión de código generado, licencias, secretos en prompts y trazabilidad del cambio.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/brand.css">
+</head>
+<body class="capsule" data-capsule="06" data-track="ia" data-title="IA que acelera sin abrir huecos" data-minutes="8" data-next-file="07-contrasenas-que-aguantan.html" data-root="../">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="topbar" data-auto-topbar></header>
+<div class="progress-rail"><span data-progress-rail></span></div>
+
+<main id="main" class="capsule-main">
+  <h1 class="sr-only">Cápsula 06: IA que acelera sin abrir huecos</h1>
+
+  <!-- ============ 1 · Portada ============ -->
+  <section class="step" data-step data-label="Inicio">
+    <div class="cap-hero">
+      <div class="step-inner">
+        <span class="chip chip-dark"><span data-icon="bolt"></span>Ruta 2 · IA con criterio</span>
+        <h2>IA que acelera sin abrir huecos</h2>
+        <p class="lead">La IA acelera cuando el trabajo es repetitivo o difícil de empezar: resumir, redactar, explicar, proponer pruebas. También acelera los errores cuando nadie revisa. La diferencia no está en la herramienta, sino en el circuito de revisión.</p>
+        <div class="cap-hero-meta">
+          <span class="chip chip-dark"><span data-icon="clock"></span>8 minutos</span>
+          <span class="chip chip-dark"><span data-icon="layers"></span>6 pasos · Actividad y cierre</span>
+          <span class="chip chip-dark"><span data-icon="target"></span>Nivel intermedio</span>
+        </div>
+        <div class="cap-hero-foot">
+          <span class="hero-note">Usa Continuar y Atrás para recorrer la cápsula a tu ritmo.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · Dónde ayuda ============ -->
+  <section class="step" data-step data-label="Buenos usos">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">01</span><span class="t">Dónde sí ayuda</span></div>
+      <h2>Acelerar no es automatizar a ciegas.</h2>
+      <p class="lead">Los mejores usos de IA en el trabajo diario tienen algo en común: producen un borrador que una persona puede revisar rápido. No sustituyen el criterio; reducen el tiempo que cuesta llegar al primer borrador.</p>
+      <p>Resumir documentación pública para un informe interno es un buen ejemplo: el material ya es de todos, el resultado se revisa y el ahorro es real. Redactar un correo interno sin datos reales es otro: la IA propone tono y estructura, y tú ajustas el contenido. Explicar un fragmento de código o proponer casos de prueba también funciona bien, siempre que la revisión ocurra antes de integrar.</p>
+      <p>El patrón se repite: entrada de bajo riesgo, salida revisable, persona responsable. Cuando falta cualquiera de las tres, la velocidad se convierte en deuda.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-icon" data-icon="book"></div>
+          <h3>Resumir material público</h3>
+          <p>Notas de prensa, documentación técnica abierta, artículos publicados. El insumo ya es público y el resumen se contrasta con la fuente.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="mail"></div>
+          <h3>Borradores sin datos reales</h3>
+          <p>Correos internos, guiones, estructuras de presentación. Tú pones los datos después, en el entorno controlado.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="bug"></div>
+          <h3>Proponer pruebas</h3>
+          <p>Casos límite y escenarios que quizá no se te ocurren. La IA sugiere; el equipo decide cuáles cubren el riesgo real.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="code"></div>
+          <h3>Explicar y revisar código</h3>
+          <p>Entender una función heredada o detectar problemas de diseño. La explicación se verifica contra el código y las pruebas, no se acepta como verdad.</p>
+        </article>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-icon" data-icon="compass"></div>
+        <div>
+          <h3>La pregunta que ordena el uso</h3>
+          <p>¿Qué pasa si la respuesta está mal y nadie lo nota? Si la consecuencia es un retrabajo menor, la IA puede avanzar sola hasta el borrador. Si la consecuencia es un acceso indebido, una pérdida financiera o una decisión sobre una persona, el circuito necesita revisión humana explícita.</p>
+        </div>
+      </div>
+    <details class="course-glossary"><summary>Palabras que aparecen en esta cápsula</summary><dl><div><dt>Diff</dt><dd>Vista que muestra qué líneas cambian entre dos versiones.</dd></div><div><dt>Commit</dt><dd>Registro de un conjunto de cambios en el historial del proyecto.</dd></div><div><dt>Pull request o PR</dt><dd>Propuesta de cambio que se presenta para revisión antes de integrarla.</dd></div></dl></details></div>
+  </section>
+
+  <!-- ============ 3 · El circuito ============ -->
+  <section class="step" data-step data-label="La revisión">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">02</span><span class="t">El circuito</span></div>
+      <h2>Humano en el circuito, no humano decorativo.</h2>
+      <p class="lead">Poner a alguien a «revisar» no sirve si esa persona no entiende el cambio o lo aprueba por cansancio. El humano en el circuito tiene que poder decir no, y tiene que tener la información para hacerlo.</p>
+      <p>En código, eso significa leer el diff, entender qué permisos toca y ejecutar las pruebas. En documentos, significa comprobar cifras, nombres y afirmaciones antes de enviar. En cualquier caso, significa dejar rastro: un pull request con descripción, un commit con autor, una nota de revisión. La trazabilidad no es burocracia; es lo que permite explicar después por qué se tomó una decisión.</p>
+      <p>Hay dos temas que suelen pasar desapercibidos. El primero es la licencia: el código generado puede parecerse a fragmentos existentes, y su procedencia no siempre es clara. El segundo es el secreto: pegar un archivo de configuración para que «revise el error» expone claves que no tienen nada que ver con el problema. Ninguno de los dos se resuelve con buena intención; se resuelve con revisión y con reglas claras.</p>
+
+      <div class="card-grid three">
+        <article class="card">
+          <div class="mini">Regla 1</div>
+          <h3>Revisar antes de integrar</h3>
+          <p>Antes de integrar un cambio generado, procura que una persona competente lo revise y que pase las comprobaciones exigidas para el proyecto.</p>
+        </article>
+        <article class="card">
+          <div class="mini">Regla 2</div>
+          <h3>Dejar rastro</h3>
+          <p>Descripción del cambio, autor, revisión y motivo. Si algo falla, se puede reconstruir la decisión.</p>
+        </article>
+        <article class="card">
+          <div class="mini">Regla 3</div>
+          <h3>No automatizar lo sensible</h3>
+          <p>Aprobaciones de crédito, accesos, despidos o pagos conservan una persona responsable con nombre.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · Reto ============ -->
+  <section class="step" data-step data-label="Explorar"><div class="step-inner">
+<div class="eyebrow-line"><span class="n">03</span><span class="t">Aprende haciendo</span></div><h2>Construye un flujo con revisión humana.</h2><p class="lead">Activa las etapas y observa cómo cambia el recorrido de un borrador generado con IA.</p>
+
+<div class="learning-lab" data-activity="pipeline" aria-label="Construye un flujo con revisión humana.">
+<p class="lab-tag">Actividad práctica · Sin límite de tiempo</p>
+<noscript><p>Lee la explicación al final para recorrer este ejemplo.</p></noscript>
+<div data-activity-ui hidden><div class="access-controls"><label class="lab-control"><input type="checkbox" data-toggle="brief"><span><strong>Definir la tarea sin datos sensibles</strong><small>Aclarar finalidad, límites y herramienta autorizada.</small></span></label><label class="lab-control"><input type="checkbox" data-toggle="review"><span><strong>Revisar el borrador con una persona</strong><small>Comprobar exactitud, contexto y posibles errores.</small></span></label><label class="lab-control"><input type="checkbox" data-toggle="test"><span><strong>Probar y validar antes de usar</strong><small>Verificar el resultado de acuerdo con el tipo de tarea.</small></span></label></div><button type="button" class="btn btn-ghost btn-sm result-shortcut" data-show-result="[data-pipeline]">Ver el resultado</button><ol class="activity-flow" data-pipeline></ol><div class="activity-preview"><h3 data-pipeline-title></h3><p data-pipeline-text></p></div><div class="activity-actions"><button type="button" class="btn btn-ghost btn-sm" data-activity-reset>Reiniciar actividad</button></div><p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-activity-live></p></div>
+<details class="lab-explanations"><summary>Leer la explicación de la actividad</summary><ul><li><strong>Construye el recorrido</strong><p>Los controles añaden etapas a un flujo de ejemplo; no ejecutan revisiones reales.</p></li><li><strong>Distingue borrador y decisión</strong><p>Una persona debe revisar y validar el resultado antes de utilizarlo según el proceso de la tarea.</p></li></ul></details>
+<p class="lab-note">Es una demostración con ejemplos ficticios. Puedes reiniciarla; no modifica tus archivos ni guarda los cambios.</p>
+<script type="application/json" data-activity-config>{}</script>
+</div></div></section>
+
+  <!-- ============ 5 · Aplicar ============ -->
+  <section class="step" data-step data-label="Aplicar">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">04</span><span class="t">Antes de integrar</span></div>
+      <h2>Llévalo a tu trabajo.</h2>
+      <p class="lead">Estas recomendaciones te ayudan a aplicar lo aprendido cuando aparezca una situación similar en tu trabajo.</p>
+
+      <aside class="takeaway-card" aria-labelledby="takeaway-06"><span class="takeaway-kicker">Para tu día a día</span><h3 id="takeaway-06">Al trabajar con ayuda de IA, recuerda</h3><ul><li><strong>Define la tarea y sus límites.</strong><p>Aclara qué resultado necesitas y qué información puedes utilizar.</p></li><li><strong>Trata el resultado como un borrador.</strong><p>Revisa el contenido, los supuestos y los cambios propuestos.</p></li><li><strong>Valida antes de utilizarlo.</strong><p>Comprueba lo relevante para esa tarea y registra qué se verificó.</p></li><li><strong>Respeta el proceso de aprobación.</strong><p>La rapidez de generación no elimina los controles del trabajo.</p></li></ul></aside>
+
+      <div class="callout callout-risk">
+        <div class="callout-icon" data-icon="key"></div>
+        <div>
+          <h3>Si el secreto ya salió</h3>
+          <p>Reporta la exposición y coordina la revocación o el cambio de la clave sin demora. Cambiar la clave invalida el valor que se expuso; borrar la conversación no. Luego se revisan los accesos y se documenta lo ocurrido para evitar que vuelva a pasar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · Cierre y quiz ============ -->
+  <section class="step" data-step data-label="Cierre">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">05</span><span class="t">Cierre</span></div>
+      <h2>Lo que te llevas.</h2>
+
+      <div class="takeaways">
+        <div class="takeaway">
+          <span class="num">1</span>
+          <p><b>La IA brilla en el primer borrador.</b> Resumir, redactar, explicar y proponer pruebas: tareas revisables que ahorran tiempo sin decidir por nadie.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">2</span>
+          <p><b>El humano en el circuito debe poder decir no.</b> Revisar de verdad exige entender el cambio, probarlo y dejar rastro de la decisión.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">3</span>
+          <p><b>Secretos y decisiones sensibles quedan fuera.</b> No se pegan claves y no se automatiza lo que afecta derechos, dinero o accesos.</p>
+        </div>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <div class="quiz-shell">
+          <div class="quiz-body">
+            <div class="quiz-top">
+              <span class="quiz-count" data-quiz-count></span>
+              <span class="quiz-score" data-quiz-score></span>
+            </div>
+            <div class="quiz-bar"><i></i></div>
+            <p class="quiz-q"></p>
+            <div class="quiz-options"></div>
+            <div class="quiz-feedback"></div>
+            <div class="quiz-next"><button class="btn" type="button" data-quiz-next style="visibility:hidden">Siguiente</button></div>
+          </div>
+          <div class="quiz-result">
+            <div class="result-ring" data-result-ring></div>
+            <div class="result-title" data-result-title></div>
+            <p class="result-sub" data-result-sub></p>
+            <div class="result-actions">
+              <button class="btn btn-ghost" type="button" data-result-retry>Repetir</button>
+              <a class="btn" data-result-next href="07-contrasenas-que-aguantan.html">Siguiente cápsula</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="bottom-nav" data-auto-nav></nav>
+
+<script id="capsule-config" type="application/json">{
+  "id": "06",
+  "title": "IA que acelera sin abrir huecos",
+  "track": "ia",
+  "minutes": "8",
+  "next": "07-contrasenas-que-aguantan.html",
+  "takeaway": "usa la IA para preparar borradores y mantén la revisión y las aprobaciones que exige la tarea.",
+  "questions": [
+    {
+      "q": "La IA generó una función nueva y los tests pasan. ¿Qué haces antes de integrarla?",
+      "options": [
+        "La integro: si los tests pasan, está bien",
+        "La leo, entiendo qué permisos toca y reviso casos límite antes de integrarla",
+        "Cambio el nombre de las variables y la subo",
+        "La dejo en una rama sin revisión"
+      ],
+      "a": 1,
+      "ok": "Los tests no cubren permisos, entradas maliciosas ni el contexto del cambio.",
+      "no": "Pasar tests no es una revisión de seguridad. Lee, entiende y prueba antes de integrar."
+    },
+    {
+      "q": "Pegaste una clave en un asistente para que revisara una configuración. ¿Qué haces?",
+      "options": [
+        "Borro la conversación y sigo",
+        "Cambio el nombre de la variable",
+        "Roto la clave, reviso accesos y aviso al equipo de seguridad",
+        "Espero a que caduque sola"
+      ],
+      "a": 2,
+      "ok": "La clave debe considerarse expuesta; rotarla es lo que reduce el daño.",
+      "no": "Borrar el chat no invalida la clave. Primero se rota y se reporta."
+    },
+    {
+      "q": "¿Qué uso de IA requiere revisión humana obligatoria?",
+      "options": [
+        "Resumir un artículo público",
+        "Proponer nombres para un proyecto",
+        "Aprobar automáticamente el acceso al crédito de una persona",
+        "Corregir la ortografía de un correo interno"
+      ],
+      "a": 2,
+      "ok": "Las decisiones sobre derechos, dinero o accesos necesitan responsable humano y posibilidad de revisión.",
+      "no": "Automatizar una decisión sensible elimina la posibilidad de explicar y apelar."
+    },
+    {
+      "q": "¿Cuál es un buen uso de IA en el trabajo diario?",
+      "options": [
+        "Pegar el archivo de clientes para que lo ordene",
+        "Generar un borrador revisable con insumos públicos y sin datos reales",
+        "Dejar que apruebe pagos mientras nadie mira",
+        "Sustituir la revisión de código para ir más rápido"
+      ],
+      "a": 1,
+      "ok": "Entrada de bajo riesgo, salida revisable y persona responsable: el patrón que funciona.",
+      "no": "Un buen uso reduce el tiempo de borrador sin entregar datos ni decisiones críticas."
+    }
+  ]
+}</script>
+
+<script src="../assets/app.js"></script>
+<script src="../assets/experience.js"></script>
+<script src="../assets/activities.js"></script>
+</body>
+</html>

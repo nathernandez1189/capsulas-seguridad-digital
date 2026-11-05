@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>08 · El mínimo privilegio · Cápsulas de seguridad digital</title>
+<meta name="description" content="Cuentas nominativas, roles, acceso temporal y revisiones: cómo dar solo el permiso necesario y retirarlo a tiempo.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/brand.css">
+</head>
+<body class="capsule" data-capsule="08" data-track="accesos" data-title="El mínimo privilegio" data-minutes="8" data-next-file="09-el-engano-llega-por-correo.html" data-root="../">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="topbar" data-auto-topbar></header>
+<div class="progress-rail"><span data-progress-rail></span></div>
+
+<main id="main" class="capsule-main">
+  <h1 class="sr-only">Cápsula 08: El mínimo privilegio</h1>
+
+  <!-- ============ 1 · Portada ============ -->
+  <section class="step" data-step data-label="Inicio">
+    <div class="cap-hero">
+      <div class="step-inner">
+        <span class="chip chip-dark"><span data-icon="users"></span>Ruta 3 · Revisa los accesos</span>
+        <h2>El mínimo privilegio</h2>
+        <p class="lead">El mínimo privilegio no es desconfiar de tu equipo: es evitar que una cuenta comprometida —o un descuido— tenga más alcance del necesario. Cada permiso debería tener nombre, motivo y fecha de revisión.</p>
+        <div class="cap-hero-meta">
+          <span class="chip chip-dark"><span data-icon="clock"></span>8 minutos</span>
+          <span class="chip chip-dark"><span data-icon="layers"></span>6 pasos · Actividad y cierre</span>
+          <span class="chip chip-dark"><span data-icon="target"></span>Nivel intermedio</span>
+        </div>
+        <div class="cap-hero-foot">
+          <span class="hero-note">Usa Continuar y Atrás para recorrer la cápsula a tu ritmo.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · La cuenta no es la persona ============ -->
+  <section class="step" data-step data-label="El principio">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">01</span><span class="t">El principio</span></div>
+      <h2>Compartir una cuenta dificulta saber quién actuó.</h2>
+      <p class="lead">Cuando varias personas usan la misma cuenta sin controles de atribución, es más difícil identificar quién realizó cada acción. Si algo sale mal, el registro muestra un usuario que podría ser cualquiera. La trazabilidad se pierde justo cuando más se necesita.</p>
+      <p>Las cuentas nominativas resuelven la base: cada persona entra con su propia identidad, y cada acción queda asociada a alguien. Sobre esa base se construye lo demás: roles que agrupan permisos, accesos temporales para tareas puntuales y revisiones periódicas para retirar lo que ya no se usa.</p>
+      <p>El objetivo no es que todos tengan menos herramientas, sino que cada persona tenga las que necesita para su trabajo. Un exceso de permisos no hace a nadie más productivo: hace que un error o una cuenta comprometida tenga más puertas abiertas.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-icon" data-icon="fingerprint"></div>
+          <h3>Cuentas nominativas</h3>
+          <p>Cada persona debe utilizar su propia identidad. Las cuentas técnicas o compartidas que sean necesarias requieren autorización y controles específicos.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="grid"></div>
+          <h3>Roles, no permisos sueltos</h3>
+          <p>El rol agrupa lo que una función necesita. Conceder permisos uno por uno produce combinaciones que nadie revisa.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="clock"></div>
+          <h3>Acceso temporal</h3>
+          <p>Para una auditoría, un reemplazo o un proyecto. Con fecha de inicio, fecha de fin y responsable de retirarlo.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="refresh"></div>
+          <h3>Revisión periódica</h3>
+          <p>Revisa los permisos con la periodicidad y los eventos definidos por la organización, como un cambio de rol o el cierre de un proyecto.</p>
+        </article>
+      </div>
+
+      <div class="callout callout-risk">
+        <div class="callout-icon" data-icon="alert"></div>
+        <div>
+          <h3>El costo de la comodidad</h3>
+          <p>Dar administrador «para que no haya problemas» ahorra una conversación hoy y crea un riesgo permanente. Si esa cuenta se compromete, el atacante no necesita escalar: ya tiene la llave maestra. La comodidad de hoy se paga con el alcance del incidente de mañana.</p>
+        </div>
+      </div>
+    <details class="course-glossary"><summary>Palabras que aparecen en esta cápsula</summary><dl><div><dt>Rol</dt><dd>Conjunto de permisos asociado a una función.</dd></div><div><dt>Mínimo privilegio</dt><dd>Acceso limitado a lo que necesita una tarea autorizada.</dd></div></dl></details></div>
+  </section>
+
+  <!-- ============ 3 · Pedir, conceder, retirar ============ -->
+  <section class="step" data-step data-label="El ciclo">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">02</span><span class="t">El ciclo</span></div>
+      <h2>Todo acceso tiene un final.</h2>
+      <p class="lead">El mínimo privilegio se sostiene en un ciclo corto: alguien pide, alguien concede lo justo, alguien revisa y alguien retira. Cuando falta el último paso, el permiso se vuelve permanente por olvido.</p>
+      <p>La solicitud debería responder tres preguntas: qué tarea se va a hacer, qué permiso mínimo la permite y hasta cuándo se necesita. La aprobación debería quedar registrada, no en un chat que se pierde. Y el retiro debería estar asociado a una fecha o a un evento: el fin del proyecto, el cambio de rol o la salida de la persona.</p>
+      <p>La separación de funciones agrega otra capa: quien solicita un pago no debería ser quien lo aprueba, y quien administra un servidor no debería ser la única persona que revisa sus registros. No siempre es posible en equipos pequeños, pero cuando no lo es, conviene que sea una decisión consciente y documentada, no un accidente.</p>
+
+      <div class="callout callout-tip">
+        <div class="callout-icon" data-icon="route"></div>
+        <div>
+          <h3>La salida de una persona también requiere revisar accesos</h3>
+          <p>El día que alguien sale de la compañía, sus accesos deben cerrarse el mismo día. Eso incluye cuentas en la nube, repositorios, herramientas de terceros, grupos de chat y cualquier credencial compartida. Un acceso olvidado no es un detalle administrativo: es una puerta que sigue abierta sin dueño.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · Reto ============ -->
+  <section class="step" data-step data-label="Explorar"><div class="step-inner">
+<div class="eyebrow-line"><span class="n">03</span><span class="t">Aprende haciendo</span></div><h2>Diseña un acceso temporal.</h2><p class="lead">Un proveedor necesita leer una carpeta del proyecto durante catorce días. Ajusta el acceso y mira cómo queda la solicitud ficticia.</p>
+
+<div class="learning-lab" data-activity="permissions" aria-label="Diseña un acceso temporal.">
+<p class="lab-tag">Actividad práctica · Sin límite de tiempo</p>
+<noscript><p>Lee la explicación al final para recorrer este ejemplo.</p></noscript>
+<div data-activity-ui hidden><div class="access-controls"><label class="lab-person-label" for="a-scope">Alcance del acceso</label><select id="a-scope" data-select="scope"><option value="company">Todos los proyectos</option><option value="project">Solo la carpeta del proyecto</option></select><label class="lab-person-label" for="a-role">Qué podrá hacer</label><select id="a-role" data-select="role"><option value="admin">Administrar permisos</option><option value="edit">Leer y editar</option><option value="read">Solo leer</option></select><label class="lab-person-label" for="a-duration">Vigencia</label><select id="a-duration" data-select="duration"><option value="unlimited">Sin fecha de fin</option><option value="14">14 días</option><option value="3">3 días</option></select></div><button type="button" class="btn btn-ghost btn-sm result-shortcut" data-show-result=".activity-preview">Ver el resultado</button><div class="activity-preview"><h3 data-permission-title></h3><p data-permission-text></p><p class="activity-rule" data-permission-detail></p></div><div class="activity-actions"><button type="button" class="btn btn-ghost btn-sm" data-activity-reset>Reiniciar actividad</button></div><p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-activity-live></p></div>
+<details class="lab-explanations"><summary>Leer la explicación de la actividad</summary><ul><li><strong>Ajusta la propuesta</strong><p>El ejemplo requiere leer una carpeta durante catorce días; cambia los campos para comparar alcances.</p></li><li><strong>Solicita aprobación</strong><p>Una configuración en esta demostración no concede acceso real. Sigue el procedimiento de autorización.</p></li></ul></details>
+<p class="lab-note">Es una demostración con ejemplos ficticios. Puedes reiniciarla; no modifica tus archivos ni guarda los cambios.</p>
+<script type="application/json" data-activity-config>{}</script>
+</div></div></section>
+
+  <!-- ============ 5 · Aplicar ============ -->
+  <section class="step" data-step data-label="Aplicar">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">04</span><span class="t">Tu control</span></div>
+      <h2>Llévalo a tu trabajo.</h2>
+      <p class="lead">Estas recomendaciones te ayudan a aplicar lo aprendido cuando aparezca una situación similar en tu trabajo.</p>
+
+      <aside class="takeaway-card" aria-labelledby="takeaway-08"><span class="takeaway-kicker">Para tu día a día</span><h3 id="takeaway-08">Al solicitar o revisar un acceso, recuerda</h3><ul><li><strong>Relaciona el permiso con la tarea.</strong><p>Define qué necesita hacer la persona y sobre qué recursos.</p></li><li><strong>Limita el alcance y la función.</strong><p>No pidas administración si la tarea solo necesita lectura.</p></li><li><strong>Acuerda cuándo termina.</strong><p>Revisa la vigencia y retira los permisos que dejan de ser necesarios.</p></li><li><strong>Usa cuentas y aprobaciones individuales.</strong><p>No resuelvas una solicitud compartiendo tu contraseña.</p></li></ul></aside>
+
+      <div class="callout callout-good">
+        <div class="callout-icon" data-icon="search"></div>
+        <div>
+          <h3>Una revisión que sí sirve</h3>
+          <p>No es mirar una lista y decir «todo bien». Es preguntar por cada acceso: ¿el permiso sigue siendo necesario para la tarea actual?, ¿sigue en el rol que lo justificó?, ¿existe una fecha de fin? Lo que no se justifica se revisa con la persona responsable y se ajusta por el proceso autorizado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · Cierre y quiz ============ -->
+  <section class="step" data-step data-label="Cierre">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">05</span><span class="t">Cierre</span></div>
+      <h2>Lo que te llevas.</h2>
+
+      <div class="takeaways">
+        <div class="takeaway">
+          <span class="num">1</span>
+          <p><b>Sin nombre no hay trazabilidad.</b> Las cuentas compartidas borran la responsabilidad justo cuando hace falta saber quién hizo qué.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">2</span>
+          <p><b>Lo justo y por tiempo limitado.</b> El rol mínimo, con fecha de fin y aprobación registrada, reduce el alcance de cualquier incidente.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">3</span>
+          <p><b>Revisar y retirar es parte del permiso.</b> Un acceso que nadie revisa se vuelve permanente por olvido, no por necesidad.</p>
+        </div>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <div class="quiz-shell">
+          <div class="quiz-body">
+            <div class="quiz-top">
+              <span class="quiz-count" data-quiz-count></span>
+              <span class="quiz-score" data-quiz-score></span>
+            </div>
+            <div class="quiz-bar"><i></i></div>
+            <p class="quiz-q"></p>
+            <div class="quiz-options"></div>
+            <div class="quiz-feedback"></div>
+            <div class="quiz-next"><button class="btn" type="button" data-quiz-next style="visibility:hidden">Siguiente</button></div>
+          </div>
+          <div class="quiz-result">
+            <div class="result-ring" data-result-ring></div>
+            <div class="result-title" data-result-title></div>
+            <p class="result-sub" data-result-sub></p>
+            <div class="result-actions">
+              <button class="btn btn-ghost" type="button" data-result-retry>Repetir</button>
+              <a class="btn" data-result-next href="09-el-engano-llega-por-correo.html">Siguiente cápsula</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="bottom-nav" data-auto-nav></nav>
+
+<script id="capsule-config" type="application/json">{
+  "id": "08",
+  "title": "El mínimo privilegio",
+  "track": "accesos",
+  "minutes": "8",
+  "next": "09-el-engano-llega-por-correo.html",
+  "takeaway": "ajusta cada acceso a la tarea, la persona y su vigencia, con aprobación y revisión.",
+  "questions": [
+    {
+      "q": "Una practicante pide rol de administrador en producción para aprender. ¿Qué haces?",
+      "options": [
+        "Se lo concedo: es solo mientras aprende",
+        "Le doy la contraseña de una cuenta de administrador",
+        "Le doy acceso a un entorno de pruebas con permisos limitados",
+        "Le pido que firme una carta y le doy el rol"
+      ],
+      "a": 2,
+      "ok": "Se puede aprender sin administrar producción; el entorno de pruebas reduce el riesgo.",
+      "no": "Administrar producción no es una necesidad de aprendizaje. Da un entorno seguro y acotado."
+    },
+    {
+      "q": "¿Por qué una cuenta compartida es un problema de seguridad?",
+      "options": [
+        "Porque es más difícil de recordar",
+        "Porque consume más licencias",
+        "Porque no permite usar MFA",
+        "Porque dificulta atribuir acciones y retirar el acceso de una persona sin afectar a las demás"
+      ],
+      "a": 3,
+      "ok": "Usar identidades individuales facilita atribuir acciones y gestionar permisos por persona.",
+      "no": "El problema no es la memoria: es que la responsabilidad y el control se diluyen."
+    },
+    {
+      "q": "¿Qué debe incluir una revisión de accesos que realmente sirva?",
+      "options": [
+        "Confirmar que todos siguen en la lista",
+        "Enviar un correo pidiendo que respondan «ok»",
+        "Preguntar si el acceso se usó, sigue justificado y tiene fecha de fin",
+        "Revisar solo las cuentas de administrador"
+      ],
+      "a": 2,
+      "ok": "La revisión retira lo que no se usa o no se explica; no es un trámite de confirmación.",
+      "no": "Una lista que todos aprueban sin mirar no reduce el acceso; solo lo documenta."
+    },
+    {
+      "q": "Un empleado cambia de rol y conserva permisos del anterior. ¿Qué corresponde?",
+      "options": [
+        "Retirar los permisos que ya no necesita y ajustar el rol nuevo",
+        "Dejarlos: no molestan",
+        "Esperar a la revisión del próximo año",
+        "Cambiarle la contraseña y ya"
+      ],
+      "a": 0,
+      "ok": "El cambio de rol es el momento natural para retirar lo que dejó de ser necesario.",
+      "no": "Los permisos heredados acumulan alcance. Se ajustan al cambiar de rol, no al año siguiente."
+    }
+  ]
+}</script>
+
+<script src="../assets/app.js"></script>
+<script src="../assets/experience.js"></script>
+<script src="../assets/activities.js"></script>
+</body>
+</html>

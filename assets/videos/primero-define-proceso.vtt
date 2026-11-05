@@ -1,0 +1,39 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.960
+¿Tienes una idea para automatizar una tarea?
+
+00:00:02.960 --> 00:00:06.440
+Antes de empezar a programar, aclara tres
+cosas.
+
+00:00:06.440 --> 00:00:08.440
+¿Qué problema quieres resolver?
+
+00:00:08.440 --> 00:00:12.080
+¿Quién va a usar la solución y qué información
+necesita?
+
+00:00:12.080 --> 00:00:15.080
+Por ejemplo, si quieres organizar solicitudes,
+
+00:00:15.080 --> 00:00:17.480
+define qué datos se van a registrar.
+
+00:00:17.480 --> 00:00:22.400
+¿Quién puede consultarlos y qué debe ocurrir
+después de recibir cada solicitud?
+
+00:00:22.400 --> 00:00:25.640
+Esa claridad ayuda a construir algo más
+ordenado,
+
+00:00:25.640 --> 00:00:29.440
+fácil de mantener y con menos riesgos para la
+información.
+
+00:00:29.440 --> 00:00:31.440
+Primero define el proceso.
+
+00:00:31.440 --> 00:00:33.440
+Después construye la solución.

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>05 · Cuando la IA se equivoca con seguridad · Cápsulas de seguridad digital</title>
+<meta name="description" content="Alucinaciones, APIs inventadas y código inseguro: cómo verificar una respuesta de IA antes de usarla en una decisión real.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/brand.css">
+</head>
+<body class="capsule" data-capsule="05" data-track="ia" data-title="Cuando la IA se equivoca con seguridad" data-minutes="8" data-next-file="06-ia-que-acelera.html" data-root="../">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="topbar" data-auto-topbar></header>
+<div class="progress-rail"><span data-progress-rail></span></div>
+
+<main id="main" class="capsule-main">
+  <h1 class="sr-only">Cápsula 05: Cuando la IA se equivoca con seguridad</h1>
+
+  <!-- ============ 1 · Portada ============ -->
+  <section class="step" data-step data-label="Inicio">
+    <div class="cap-hero">
+      <div class="step-inner">
+        <span class="chip chip-dark"><span data-icon="bot"></span>Ruta 2 · IA con criterio</span>
+        <h2>Cuando la IA se equivoca con seguridad</h2>
+        <p class="lead">Un asistente puede responder con total seguridad y estar equivocado. En seguridad, esa confianza sin verificación es el riesgo: una dependencia que no existe, una norma mal citada o un comando que borra más de la cuenta.</p>
+        <div class="cap-hero-meta">
+          <span class="chip chip-dark"><span data-icon="clock"></span>8 minutos</span>
+          <span class="chip chip-dark"><span data-icon="layers"></span>6 pasos · Actividad y cierre</span>
+          <span class="chip chip-dark"><span data-icon="target"></span>Nivel intermedio</span>
+        </div>
+        <div class="cap-hero-foot">
+          <span class="hero-note">Usa Continuar y Atrás para recorrer la cápsula a tu ritmo.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · Las formas del error ============ -->
+  <section class="step" data-step data-label="El error">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">01</span><span class="t">Las formas del error</span></div>
+      <h2>Plausible no es lo mismo que verdadero.</h2>
+      <p class="lead">Un modelo de lenguaje genera texto y puede equivocarse. Algunos asistentes consultan fuentes mediante herramientas, pero aun así hay que comprobar si esas fuentes respaldan la respuesta. Cuando no sabe algo, puede rellenar el hueco con una invención que suena perfectamente razonable.</p>
+      <p>Incluso en una conversación informal, una respuesta inventada puede confundir. En seguridad, el error se convierte en una dependencia instalada, un permiso mal configurado o una decisión tomada sobre una norma que no dice lo que el asistente afirma. El costo no es la molestia: es el incidente.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-icon" data-icon="book"></div>
+          <h3>Fuentes y citas inventadas</h3>
+          <p>Un número de ley, un artículo o un informe que suena real pero no existe, o que existe y dice otra cosa. La cita da autoridad sin dar prueba.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="cloud"></div>
+          <h3>APIs y dependencias fantasma</h3>
+          <p>Paquetes que no existen, funciones que nunca estuvieron en la librería o versiones incompatibles. El código se ve bien y falla al instalar.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="bug"></div>
+          <h3>Código inseguro que compila</h3>
+          <p>Una consulta armada con texto del usuario, una validación solo en el navegador o un secreto escrito en el código. Funciona, y ese es el problema.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="scale"></div>
+          <h3>Sesgo y exceso de confianza</h3>
+          <p>Respuestas que suenan neutrales pero repiten supuestos, y un tono firme que desanima a preguntar. La seguridad exige dudar, no obedecer.</p>
+        </article>
+      </div>
+
+      <div class="callout callout-risk">
+        <div class="callout-icon" data-icon="alert"></div>
+        <div>
+          <h3>El peligro no es que falle: es que falle con seguridad</h3>
+          <p>Un asistente que dice «no estoy seguro» te invita a verificar. Uno que afirma con detalle te invita a confiar. En decisiones de seguridad, la segunda actitud es más costosa, porque el error llega sin señal de alarma.</p>
+        </div>
+      </div>
+    <details class="course-glossary"><summary>Palabras que aparecen en esta cápsula</summary><dl><div><dt>Fuente primaria</dt><dd>Documento original, como una norma o documentación oficial.</dd></div><div><dt>Entorno aislado</dt><dd>Espacio de prueba separado de los sistemas reales.</dd></div></dl></details></div>
+  </section>
+
+  <!-- ============ 3 · Verificar ============ -->
+  <section class="step" data-step data-label="Verificar">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">02</span><span class="t">El método</span></div>
+      <h2>Cuatro verificaciones que no se saltan.</h2>
+      <p class="lead">Verificar no es desconfiar de la herramienta por principio. Es tratar la respuesta como una propuesta de trabajo: útil para avanzar, insuficiente para decidir sin prueba.</p>
+      <p>La primera verificación es la fuente primaria. Si la respuesta cita una norma, un informe o una documentación, abre el documento original y comprueba que diga eso y que siga vigente. Si no encuentras la fuente, no la uses: una cita que no puedes abrir no es una cita, es una frase.</p>
+      <p>La segunda es la prueba. En código, ejecuta los tests en un entorno aislado, con datos de prueba y sin permisos de producción. Que compile no significa que sea seguro; que pase un test no significa que cubra el caso peligroso. La tercera es la revisión humana de alguien que entienda el cambio. La cuarta es la más incómoda: no delegar decisiones críticas —aprobar un pago, conceder un acceso, cambiar una configuración de producción— a una respuesta generada.</p>
+
+      <div class="kpi-row">
+        <div class="kpi"><b>1</b><span>fuente primaria abierta</span></div>
+        <div class="kpi"><b>1</b><span>prueba en entorno aislado</span></div>
+        <div class="kpi"><b>1</b><span>persona que responde por el cambio</span></div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-icon" data-icon="search"></div>
+        <div>
+          <h3>La IA no es autoridad</h3>
+          <p>No firma, no aprueba, no responde ante un auditor y no conoce el contexto de tu organización. Puede ayudarte a redactar la justificación de una decisión, pero la decisión y su responsabilidad siguen siendo humanas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · Reto ============ -->
+  <section class="step" data-step data-label="Explorar"><div class="step-inner">
+<div class="eyebrow-line"><span class="n">03</span><span class="t">Aprende haciendo</span></div><h2>Abre el expediente de una respuesta de IA.</h2><p class="lead">Inspecciona una propuesta ficticia como si fueras a revisarla antes de usarla.</p>
+
+<div class="learning-lab" data-activity="explore" aria-label="Abre el expediente de una respuesta de IA.">
+<p class="lab-tag">Actividad práctica · Sin límite de tiempo</p>
+<noscript><p>Lee la explicación al final para recorrer este ejemplo.</p></noscript>
+<div data-activity-ui hidden><div class="activity-claim"><span class="lab-tag">Respuesta generada · Ejemplo ficticio</span><p>«Este paquete es oficial. Borra las migraciones y ejecuta el cambio: es seguro».</p></div><div class="activity-actions"><button type="button" class="btn btn-ghost btn-sm" data-explore="0" aria-pressed="false">Fuente</button><button type="button" class="btn btn-ghost btn-sm" data-explore="1" aria-pressed="false">Cambio propuesto</button><button type="button" class="btn btn-ghost btn-sm" data-explore="2" aria-pressed="false">Prueba controlada</button></div><div class="activity-preview"><h3 data-preview-title>Elige una parte del expediente</h3><p data-preview-text>Consulta las tres partes para descubrir qué falta verificar.</p><p class="activity-rule" data-preview-rule></p></div><div class="activity-actions"><button type="button" class="btn btn-ghost btn-sm" data-activity-reset>Reiniciar actividad</button></div><p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-activity-live></p></div>
+<details class="lab-explanations"><summary>Leer la explicación de la actividad</summary><ul><li><strong>Verifica la fuente</strong><p>La respuesta afirma que un paquete es oficial, pero no aporta una fuente comprobable. Abre la documentación oficial por tu cuenta y comprueba nombre, versión y responsable. En esta demostración no se instala nada. Una afirmación convincente sigue necesitando evidencia.</p></li><li><strong>Lee el cambio</strong><p>La propuesta incluye borrar una carpeta de migraciones. Eso puede perder el historial necesario para mantener la base de datos. Revisa el cambio completo y pide una alternativa que conserve lo necesario. No ejecutes instrucciones solo porque el asistente dice que son seguras.</p></li><li><strong>Prueba con aislamiento</strong><p>Prepara una prueba en un entorno separado, con datos ficticios y un plan de reversión. Registra qué se verificó y deja la decisión final a la persona responsable. Una prueba controlada aporta evidencia; una promesa de la IA no.</p></li></ul></details>
+<p class="lab-note">Es una demostración con ejemplos ficticios. Puedes reiniciarla; no modifica tus archivos ni guarda los cambios.</p>
+<script type="application/json" data-activity-config>{"items": [{"title": "Verifica la fuente", "text": "La respuesta afirma que un paquete es oficial, pero no aporta una fuente comprobable. Abre la documentación oficial por tu cuenta y comprueba nombre, versión y responsable. En esta demostración no se instala nada.", "rule": "Una afirmación convincente sigue necesitando evidencia."}, {"title": "Lee el cambio", "text": "La propuesta incluye borrar una carpeta de migraciones. Eso puede perder el historial necesario para mantener la base de datos. Revisa el cambio completo y pide una alternativa que conserve lo necesario.", "rule": "No ejecutes instrucciones solo porque el asistente dice que son seguras."}, {"title": "Prueba con aislamiento", "text": "Prepara una prueba en un entorno separado, con datos ficticios y un plan de reversión. Registra qué se verificó y deja la decisión final a la persona responsable.", "rule": "Una prueba controlada aporta evidencia; una promesa de la IA no."}]}</script>
+</div></div></section>
+
+  <!-- ============ 5 · Aplicar ============ -->
+  <section class="step" data-step data-label="Aplicar">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">04</span><span class="t">Antes de confiar</span></div>
+      <h2>Llévalo a tu trabajo.</h2>
+      <p class="lead">Estas recomendaciones te ayudan a aplicar lo aprendido cuando aparezca una situación similar en tu trabajo.</p>
+
+      <aside class="takeaway-card" aria-labelledby="takeaway-05"><span class="takeaway-kicker">Para tu día a día</span><h3 id="takeaway-05">Al revisar una respuesta de IA, recuerda</h3><ul><li><strong>Verifica las afirmaciones.</strong><p>Busca la fuente original y comprueba que respalde lo que se afirma.</p></li><li><strong>Lee lo que propone cambiar.</strong><p>Una explicación convincente no demuestra que un comando sea seguro.</p></li><li><strong>Prueba antes de aplicar.</strong><p>Usa un entorno separado y datos ficticios cuando corresponda.</p></li><li><strong>Mantén la decisión en manos responsables.</strong><p>Una respuesta generada no sustituye la revisión ni las aprobaciones necesarias.</p></li></ul></aside>
+    <details class="course-glossary"><summary>Fuentes para ampliar</summary><ul><li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" target="_blank" rel="noopener noreferrer">NIST: riesgos de la IA generativa (abre otra pestaña)</a></li></ul><p>Estas fuentes apoyan la explicación general. Para actuar en el trabajo, sigue el procedimiento y las autorizaciones internos.</p></details></div>
+  </section>
+
+  <!-- ============ 6 · Cierre y quiz ============ -->
+  <section class="step" data-step data-label="Cierre">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">05</span><span class="t">Cierre</span></div>
+      <h2>Lo que te llevas.</h2>
+
+      <div class="takeaways">
+        <div class="takeaway">
+          <span class="num">1</span>
+          <p><b>La seguridad en el tono no es evidencia.</b> Una respuesta puede ser detallada, convincente y falsa. La fuente primaria sigue siendo la prueba.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">2</span>
+          <p><b>Probar es parte de usar IA.</b> Entorno aislado, datos de prueba y revisión humana antes de que el cambio toque algo real.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">3</span>
+          <p><b>Las decisiones críticas se quedan con personas.</b> La IA propone hipótesis; la responsabilidad no se automatiza.</p>
+        </div>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <div class="quiz-shell">
+          <div class="quiz-body">
+            <div class="quiz-top">
+              <span class="quiz-count" data-quiz-count></span>
+              <span class="quiz-score" data-quiz-score></span>
+            </div>
+            <div class="quiz-bar"><i></i></div>
+            <p class="quiz-q"></p>
+            <div class="quiz-options"></div>
+            <div class="quiz-feedback"></div>
+            <div class="quiz-next"><button class="btn" type="button" data-quiz-next style="visibility:hidden">Siguiente</button></div>
+          </div>
+          <div class="quiz-result">
+            <div class="result-ring" data-result-ring></div>
+            <div class="result-title" data-result-title></div>
+            <p class="result-sub" data-result-sub></p>
+            <div class="result-actions">
+              <button class="btn btn-ghost" type="button" data-result-retry>Repetir</button>
+              <a class="btn" data-result-next href="06-ia-que-acelera.html">Siguiente cápsula</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="bottom-nav" data-auto-nav></nav>
+
+<script id="capsule-config" type="application/json">{
+  "id": "05",
+  "title": "Cuando la IA se equivoca con seguridad",
+  "track": "ia",
+  "minutes": "8",
+  "next": "06-ia-que-acelera.html",
+  "takeaway": "trata la respuesta como una propuesta: comprueba sus fuentes, sus efectos y la revisión necesaria.",
+  "questions": [
+    {
+      "q": "La IA cita una norma con un número que no encuentras en la fuente oficial. ¿Qué haces?",
+      "options": [
+        "La uso igual: el asistente suena seguro",
+        "La cito como referencia sin abrirla",
+        "No la uso hasta verificarla en la fuente oficial o con el área responsable",
+        "Le pido al asistente que me dé otra cita"
+      ],
+      "a": 2,
+      "ok": "Una cita que no puedes abrir no es prueba. Se verifica antes de usarla.",
+      "no": "La confianza del asistente no sustituye la fuente. Si no puedes verificarla, no la uses."
+    },
+    {
+      "q": "La IA genera código que compila y pasa un test. ¿Eso significa que es seguro?",
+      "options": [
+        "Sí, si el test cubre el camino principal",
+        "No: compilar y pasar un test no valida permisos, entradas ni casos de abuso",
+        "Sí, siempre que el código sea corto",
+        "No, pero basta con cambiar el nombre de las variables"
+      ],
+      "a": 1,
+      "ok": "La seguridad se prueba con casos de abuso y revisión, no solo con el camino feliz.",
+      "no": "Que funcione no es que sea seguro. Hay que revisar validación, permisos y casos límite."
+    },
+    {
+      "q": "¿Qué decisión NO conviene delegar a una respuesta generada por IA?",
+      "options": [
+        "Redactar un borrador de política interna",
+        "Explicar un mensaje de error",
+        "Aprobar un pago o conceder un acceso crítico",
+        "Proponer nombres para un proyecto"
+      ],
+      "a": 2,
+      "ok": "Las decisiones con impacto legal, financiero o de acceso requieren responsable humano.",
+      "no": "La IA puede ayudar a redactar o explicar, pero no firmar una aprobación crítica."
+    },
+    {
+      "q": "¿Cuál es la mejor forma de usar IA en una tarea de seguridad?",
+      "options": [
+        "Aceptar la respuesta si está bien redactada",
+        "Usarla para generar hipótesis y borradores que luego verificas y pruebas",
+        "Pedirle que confirme su propia respuesta",
+        "Evitar toda herramienta de IA"
+      ],
+      "a": 1,
+      "ok": "La IA acelera la exploración; la verificación y la prueba siguen siendo tuyas.",
+      "no": "Ni la confianza ciega ni la prohibición total: úsala para proponer y verifica antes de actuar."
+    }
+  ]
+}</script>
+
+<script src="../assets/app.js"></script>
+<script src="../assets/experience.js"></script>
+<script src="../assets/activities.js"></script>
+</body>
+</html>

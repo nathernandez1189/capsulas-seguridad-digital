@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>10 · Seguridad desde el primer boceto · Cápsulas de seguridad digital</title>
+<meta name="description" content="Activos, actores, superficies y requisitos: cómo diseñar una función con autenticación, autorización y validación desde el inicio.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/brand.css">
+</head>
+<body class="capsule" data-capsule="10" data-track="desarrollo" data-title="Seguridad desde el primer boceto" data-minutes="9" data-next-file="11-dependencias-y-secretos.html" data-root="../">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="topbar" data-auto-topbar></header>
+<div class="progress-rail"><span data-progress-rail></span></div>
+
+<main id="main" class="capsule-main">
+  <h1 class="sr-only">Cápsula 10: Seguridad desde el primer boceto</h1>
+
+  <!-- ============ 1 · Portada ============ -->
+  <section class="step" data-step data-label="Inicio">
+    <div class="cap-hero">
+      <div class="step-inner">
+        <span class="chip chip-dark"><span data-icon="compass"></span>Ruta 4 · Revisa antes de desplegar</span>
+        <h2>Seguridad desde el primer boceto</h2>
+        <p class="lead">La seguridad que se agrega al final es cara y frágil. La que se decide en el primer boceto cuesta una conversación. Esta cápsula presenta cuatro aspectos para planear una solución y un simulador para entender la diferencia entre identidad y permiso.</p>
+        <div class="cap-hero-meta">
+          <span class="chip chip-dark"><span data-icon="clock"></span>9 minutos</span>
+          <span class="chip chip-dark"><span data-icon="layers"></span>6 pasos · Actividad y cierre</span>
+          <span class="chip chip-dark"><span data-icon="target"></span>Nivel intermedio</span>
+        </div>
+        <div class="cap-hero-foot">
+          <span class="hero-note">Usa Continuar y Atrás para recorrer la cápsula a tu ritmo.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · Cuatro preguntas ============ -->
+  <section class="step" data-step data-label="Cuatro preguntas">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">01</span><span class="t">El boceto</span></div>
+      <h2>Cuatro preguntas antes del diagrama.</h2>
+      <p class="lead">Antes de elegir el framework o la base de datos, conviene responder qué estás protegiendo y de quién. No hace falta un documento de cien páginas: hace falta tener claro el terreno.</p>
+
+      <article class="learning-video" data-learning-video aria-labelledby="video-4-title">
+        <span class="video-kicker">Video breve · 34 segundos</span>
+        <h3 id="video-4-title">Primero define el proceso</h3>
+        <p>Antes de automatizar, aclara el problema, las personas que usarán la solución y los datos necesarios.</p>
+        <video controls playsinline preload="none" poster="../assets/videos/primero-define-proceso.jpg" aria-labelledby="video-4-title" aria-describedby="video-4-description">
+          <source src="../assets/videos/primero-define-proceso.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video. Puedes leer la transcripción que está debajo.
+        </video>
+        <div class="video-controls no-print" data-video-controls hidden>
+          <button type="button" class="btn btn-sm" data-video-toggle>Reproducir video</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-caption-toggle aria-pressed="true">Subtítulos activados</button>
+        </div>
+        <p class="video-caption" data-video-caption aria-hidden="true"></p>
+        <p id="video-4-description" class="sr-only">Video en español con subtítulos y transcripción disponibles. Pulsa reproducir para escucharlo.</p>
+        <p class="video-status" data-video-status role="status"></p>
+        <details class="video-transcript">
+          <summary>Leer la transcripción</summary>
+          <p>¿Tienes una idea para automatizar una tarea? Antes de empezar a programar, aclara tres cosas. ¿Qué problema quieres resolver? ¿Quién va a usar la solución y qué información necesita? Por ejemplo, si quieres organizar solicitudes, define qué datos se van a registrar. ¿Quién puede consultarlos y qué debe ocurrir después de recibir cada solicitud? Esa claridad ayuda a construir algo más ordenado, fácil de mantener y con menos riesgos para la información. Primero define el proceso. Después construye la solución.</p>
+        </details>
+        <p class="video-question"><strong>Para pensar:</strong> En tu idea de automatización, ¿quién puede consultar los datos y qué debe pasar después?</p>
+        <div class="video-links">
+          <a href="../assets/videos/primero-define-proceso.mp4" download>Descargar video</a>
+          <a href="../assets/videos/primero-define-proceso.vtt" download>Descargar subtítulos</a>
+        </div>
+        <script type="application/json" data-video-cues>[{"start": 0.0, "end": 2.96, "text": "¿Tienes una idea para automatizar una tarea?"}, {"start": 2.96, "end": 6.44, "text": "Antes de empezar a programar, aclara tres\ncosas."}, {"start": 6.44, "end": 8.44, "text": "¿Qué problema quieres resolver?"}, {"start": 8.44, "end": 12.08, "text": "¿Quién va a usar la solución y qué información\nnecesita?"}, {"start": 12.08, "end": 15.08, "text": "Por ejemplo, si quieres organizar solicitudes,"}, {"start": 15.08, "end": 17.48, "text": "define qué datos se van a registrar."}, {"start": 17.48, "end": 22.4, "text": "¿Quién puede consultarlos y qué debe ocurrir\ndespués de recibir cada solicitud?"}, {"start": 22.4, "end": 25.64, "text": "Esa claridad ayuda a construir algo más\nordenado,"}, {"start": 25.64, "end": 29.44, "text": "fácil de mantener y con menos riesgos para la\ninformación."}, {"start": 29.44, "end": 31.44, "text": "Primero define el proceso."}, {"start": 31.44, "end": 33.44, "text": "Después construye la solución."}]</script>
+      </article>
+
+      <p>La primera pregunta es por los activos: qué información toca la función, quién la posee y qué pasaría si se filtra o se altera. La segunda es por los actores: quién la usa legítimamente, quién podría intentar abusar y qué privilegios tendría cada uno. La tercera es por las superficies: por dónde entra y sale información, incluidas las integraciones y los archivos. La cuarta es por los requisitos: qué debe cumplir la función para ser aceptable, expresado en comportamientos verificables.</p>
+      <p>Un requisito útil no dice «debe ser seguro». Dice, por ejemplo, que solo el dueño de un documento puede descargarlo, que un archivo mayor a cierto tamaño se rechaza o que todo cambio de permisos queda registrado. Así se puede probar.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-icon" data-icon="database"></div>
+          <h3>Activos</h3>
+          <p>Datos personales, documentos, credenciales, dinero, reputación. Lo que la función toca y lo que duele si se pierde.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="users"></div>
+          <h3>Actores</h3>
+          <p>Usuarios, administradores, proveedores, integraciones. Cada uno con un nivel de confianza distinto y un permiso distinto.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="route"></div>
+          <h3>Superficies</h3>
+          <p>Formularios, APIs, cargas de archivos, webhooks, correos. Todo punto por donde entra o sale algo es una superficie que hay que validar.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="target"></div>
+          <h3>Requisitos</h3>
+          <p>Comportamientos verificables: quién puede ver qué, qué se rechaza y qué se registra. Sin ambigüedad y sin «ya veremos».</p>
+        </article>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-icon" data-icon="scale"></div>
+        <div>
+          <h3>El costo de cambiar tarde</h3>
+          <p>Agregar autorización a una función que ya está en producción implica revisar cada consulta, cada endpoint y cada prueba. Hacerlo en el boceto implica una decisión. Cuanto más tarde se descubre el hueco, más caro es cerrarlo y más gente depende de que siga abierto.</p>
+        </div>
+      </div>
+    <details class="course-glossary"><summary>Palabras que aparecen en esta cápsula</summary><dl><div><dt>Autenticación</dt><dd>Comprobación de quién intenta acceder.</dd></div><div><dt>Autorización</dt><dd>Comprobación de si esa persona puede realizar esa acción sobre ese recurso.</dd></div><div><dt>Servidor</dt><dd>Sistema que procesa las solicitudes y debe aplicar los controles del recurso.</dd></div></dl></details></div>
+  </section>
+
+  <!-- ============ 3 · Autenticación no es autorización ============ -->
+  <section class="step" data-step data-label="El ejemplo">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">02</span><span class="t">Un caso concreto</span></div>
+      <h2>Autenticación no es autorización.</h2>
+      <p class="lead">La autenticación responde «¿quién eres?». La autorización responde «¿puedes hacer esto con este recurso?». Confundirlas es una de las formas más comunes de abrir una puerta sin darse cuenta.</p>
+      <p>Imagina una función para subir y compartir archivos. El usuario inicia sesión: autenticación resuelta. Pero si el enlace de descarga usa un identificador predecible y no comprueba quién lo pide, cualquier persona con sesión puede leer archivos de otros. La autenticación funciona y la autorización falta. El sistema sabe quién eres, pero no pregunta si te corresponde.</p>
+      <p>El mismo caso tiene otras decisiones. Validar el tipo real del archivo, no solo la extensión. Guardarlo fuera de la carpeta pública y con un nombre generado. Limitar el tamaño. Registrar quién subió qué y cuándo. Y definir qué datos del archivo se guardan, dónde y por cuánto tiempo. Ninguna de estas decisiones requiere un equipo enorme; requieren hacerse antes de que el código crezca.</p>
+
+      <div class="card-grid three">
+        <article class="card">
+          <div class="mini">Error 1</div>
+          <h3>Validar solo en el navegador</h3>
+          <p>El cliente puede saltarse la validación. El servidor debe repetirla y ser la autoridad final.</p>
+        </article>
+        <article class="card">
+          <div class="mini">Error 2</div>
+          <h3>Confiar en la extensión</h3>
+          <p>Un archivo llamado imagen.jpg puede no ser una imagen. Verifica el contenido real y limita los tipos permitidos.</p>
+        </article>
+        <article class="card">
+          <div class="mini">Error 3</div>
+          <h3>Guardar en la carpeta pública</h3>
+          <p>Un archivo accesible por URL directa se comparte sin control. Almacena fuera y sirve con autorización.</p>
+        </article>
+      </div>
+
+      <div class="callout callout-risk">
+        <div class="callout-icon" data-icon="alert"></div>
+        <div>
+          <h3>Los registros también se diseñan</h3>
+          <p>Un log útil dice qué pasó, cuándo, sobre qué recurso y con qué resultado. Un log peligroso incluye contraseñas, tokens, datos personales o el contenido completo del archivo. La diferencia se decide al definir el evento, no después de un incidente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · Reto ============ -->
+  <section class="step" data-step data-label="Explorar">
+    <div class="step-inner"><div class="eyebrow-line"><span class="n">03</span><span class="t">Aprende haciendo</span></div>
+      <h2>Mira cómo cambia el acceso.</h2><p class="lead">Experimenta con identidad y permisos. Aquí no eliges una respuesta: cambias controles y observas sus efectos.</p>
+      <div class="learning-lab" data-lab="access">
+        <p class="lab-tag">Laboratorio de acceso · Prueba y observa</p>
+        <h3>Una sesión no es un permiso</h3>
+        <p id="access-instructions">Elige quién intenta abrir el documento de Ana. Activa los controles y observa el resultado. Prueba primero con Bruno: tiene sesión, pero no permiso sobre ese archivo.</p>
+        <noscript><p>Lee la explicación del simulador para comparar qué ocurre con y sin controles.</p></noscript>
+        <div data-lab-ui hidden>
+          <div class="access-controls">
+            <label class="lab-person-label" for="access-person">Persona que intenta abrir el archivo</label>
+            <select id="access-person" data-person aria-describedby="access-instructions">
+              <option value="colleague">Bruno · Tiene sesión, sin permiso</option>
+              <option value="owner">Ana · Propietaria con sesión y permiso</option>
+              <option value="anonymous">Persona sin sesión</option>
+            </select>
+            <label class="lab-control"><input type="checkbox" data-access-login><span><strong>Exigir inicio de sesión</strong><small>Comprobar que la persona se identificó.</small></span></label>
+            <label class="lab-control"><input type="checkbox" data-access-permission><span><strong>Comprobar el permiso del archivo</strong><small>En el servidor, verificar que esta persona puede abrir este documento.</small></span></label>
+          </div><button type="button" class="btn btn-ghost btn-sm result-shortcut" data-show-result="[data-access-result]">Ver el resultado</button>
+          <div class="access-path" aria-label="Resumen de los controles del ejemplo">
+            <div><span data-icon="users" aria-hidden="true"></span><span data-person-name></span></div>
+            <span class="access-arrow" aria-hidden="true">→</span>
+            <div><span data-icon="key" aria-hidden="true"></span><span data-login-state></span></div>
+            <span class="access-arrow" aria-hidden="true">→</span>
+            <div><span data-icon="shield" aria-hidden="true"></span><span data-permission-state></span></div>
+          </div>
+          <div class="access-result" data-access-result>
+            <span class="lab-tag">Resultado de la simulación</span><h4 data-access-title></h4><p data-access-reason></p>
+            <div class="document-preview" data-document-preview><span data-icon="file" aria-hidden="true"></span><div><strong>Documento de Ana</strong><span>Contenido ficticio visible para la persona seleccionada.</span></div></div>
+          </div>
+          <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-access-live></p>
+          <button type="button" class="btn btn-ghost btn-sm" data-reset-lab>Volver al ejemplo inicial</button>
+        </div>
+        <details class="lab-explanations"><summary>Leer qué demuestra el simulador</summary>
+          <ul><li><strong>Sin controles:</strong> cualquiera puede abrir el documento en este ejemplo.</li><li><strong>Solo sesión:</strong> detiene a quien no se identificó, pero Bruno todavía puede ver el documento ajeno.</li><li><strong>Permiso sobre el archivo:</strong> el servidor debe comprobar la identidad y el acceso al recurso concreto; Bruno no tiene ese permiso.</li></ul>
+          <p>Estos dos controles ilustran autenticación y autorización. Un desarrollo completo requiere también los demás controles explicados en la cápsula.</p>
+        </details>
+        <p class="lab-note">Las personas y el archivo son ficticios. El simulador no concede accesos reales ni guarda los cambios.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 5 · Aplicar ============ -->
+  <section class="step" data-step data-label="Aplicar">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">04</span><span class="t">Tu diseño</span></div>
+      <h2>Llévalo a tu trabajo.</h2>
+      <p class="lead">Estas recomendaciones te ayudan a aplicar lo aprendido cuando aparezca una situación similar en tu trabajo.</p>
+
+      <aside class="takeaway-card" aria-labelledby="takeaway-10"><span class="takeaway-kicker">Para tu día a día</span><h3 id="takeaway-10">Antes de construir una solución, recuerda</h3><ul><li><strong>Define el problema y los datos.</strong><p>Aclara qué necesita la solución y evita recoger información innecesaria.</p></li><li><strong>Distingue identidad y permiso.</strong><p>Iniciar sesión no autoriza a abrir todos los documentos.</p></li><li><strong>Aplica los controles en el servidor.</strong><p>Las comprobaciones del navegador no deben ser la única barrera.</p></li><li><strong>Diseña el registro y la revisión.</strong><p>Define qué se registra sin exponer secretos y cómo se comprobará el comportamiento.</p></li></ul></aside>
+
+      <div class="callout callout-good">
+        <div class="callout-icon" data-icon="users"></div>
+        <div>
+          <h3>Una conversación de treinta minutos</h3>
+          <p>Reúne a quien diseña, a quien implementa y a quien opera. Pregunten juntos qué puede salir mal si la función se usa de la peor manera posible. Esa conversación puede detectar problemas de contexto que una herramienta automática no identifica y complementa las revisiones técnicas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · Cierre y quiz ============ -->
+  <section class="step" data-step data-label="Cierre">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">05</span><span class="t">Cierre</span></div>
+      <h2>Lo que te llevas.</h2>
+
+      <div class="takeaways">
+        <div class="takeaway">
+          <span class="num">1</span>
+          <p><b>El boceto es el momento barato.</b> Cuatro preguntas sobre activos, actores, superficies y requisitos evitan decisiones costosas después.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">2</span>
+          <p><b>Autenticar no es autorizar.</b> Saber quién es alguien no dice si puede tocar ese recurso. La comprobación va por recurso y por acción.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">3</span>
+          <p><b>Valida en el servidor y registra con cuidado.</b> El cliente no es autoridad, y un log con secretos es una fuga esperando su turno.</p>
+        </div>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <div class="quiz-shell">
+          <div class="quiz-body">
+            <div class="quiz-top">
+              <span class="quiz-count" data-quiz-count></span>
+              <span class="quiz-score" data-quiz-score></span>
+            </div>
+            <div class="quiz-bar"><i></i></div>
+            <p class="quiz-q"></p>
+            <div class="quiz-options"></div>
+            <div class="quiz-feedback"></div>
+            <div class="quiz-next"><button class="btn" type="button" data-quiz-next style="visibility:hidden">Siguiente</button></div>
+          </div>
+          <div class="quiz-result">
+            <div class="result-ring" data-result-ring></div>
+            <div class="result-title" data-result-title></div>
+            <p class="result-sub" data-result-sub></p>
+            <div class="result-actions">
+              <button class="btn btn-ghost" type="button" data-result-retry>Repetir</button>
+              <a class="btn" data-result-next href="11-dependencias-y-secretos.html">Siguiente cápsula</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="bottom-nav" data-auto-nav></nav>
+
+<script id="capsule-config" type="application/json">{
+  "id": "10",
+  "title": "Seguridad desde el primer boceto",
+  "track": "desarrollo",
+  "minutes": "9",
+  "next": "11-dependencias-y-secretos.html",
+  "takeaway": "define datos, personas y permisos antes de construir; comprueba cada acción sobre el recurso solicitado.",
+  "questions": [
+    {
+      "q": "¿Cuándo conviene empezar a pensar en la seguridad de una función?",
+      "options": [
+        "En la primera conversación de diseño, antes de elegir la tecnología",
+        "Cuando la función ya está en producción",
+        "Cuando el equipo de seguridad hace la auditoría anual",
+        "Después de la primera incidencia"
+      ],
+      "a": 0,
+      "ok": "Las decisiones de diseño son baratas al inicio y caras cuando ya hay usuarios y código dependiendo de ellas.",
+      "no": "Esperar a producción convierte un cambio de diseño en una migración riesgosa."
+    },
+    {
+      "q": "Un usuario inició sesión y puede abrir el archivo de otra persona cambiando el identificador de la URL. ¿Qué falta?",
+      "options": [
+        "Autenticación",
+        "Autorización por recurso",
+        "Un captcha",
+        "Cambiar el color del botón"
+      ],
+      "a": 1,
+      "ok": "La sesión dice quién es; falta comprobar si puede acceder a ese recurso concreto.",
+      "no": "El usuario ya está autenticado. El hueco es la autorización sobre cada recurso."
+    },
+    {
+      "q": "¿Cómo se valida correctamente un archivo que se sube?",
+      "options": [
+        "Confiar en la extensión y en la validación del navegador",
+        "Aceptarlo si viene de la red interna",
+        "Verificar el tipo real y el tamaño en el servidor, y almacenarlo fuera de la carpeta pública",
+        "Guardarlo en la carpeta pública con el nombre original"
+      ],
+      "a": 2,
+      "ok": "La validación del servidor y el almacenamiento controlado cierran el hueco principal.",
+      "no": "La extensión se falsifica y el navegador se salta. Valida en el servidor y controla el almacenamiento."
+    },
+    {
+      "q": "¿Por qué es más caro agregar seguridad después del despliegue?",
+      "options": [
+        "Porque las herramientas son más costosas",
+        "Porque los desarrolladores cobran más",
+        "Porque la nube cobra por cada cambio",
+        "Porque hay que revisar código, datos, permisos y pruebas que ya dependen del comportamiento actual"
+      ],
+      "a": 3,
+      "ok": "El cambio tardío obliga a replantear decisiones que ya están en uso y a migrar lo existente.",
+      "no": "El costo no es solo técnico: hay usuarios, datos y pruebas que ya dependen de la decisión anterior."
+    }
+  ]
+}</script>
+
+<script src="../assets/app.js"></script>
+<script src="../assets/experience.js"></script>
+<script src="../assets/media.js"></script>
+<script src="../assets/labs.js"></script>
+</body>
+</html>

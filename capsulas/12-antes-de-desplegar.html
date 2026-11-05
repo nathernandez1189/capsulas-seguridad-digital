@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>12 · Antes de decir «está listo» · Cápsulas de seguridad digital</title>
+<meta name="description" content="Entornos, datos de prueba, logs, rollback, monitoreo y go/no-go: las recomendaciones antes de poner una solución en uso.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/brand.css">
+</head>
+<body class="capsule" data-capsule="12" data-track="desarrollo" data-title="Antes de decir «está listo»" data-minutes="9" data-next-file="../index.html" data-root="../">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="topbar" data-auto-topbar></header>
+<div class="progress-rail"><span data-progress-rail></span></div>
+
+<main id="main" class="capsule-main">
+  <h1 class="sr-only">Cápsula 12: Antes de decir «está listo»</h1>
+
+  <!-- ============ 1 · Portada ============ -->
+  <section class="step" data-step data-label="Inicio">
+    <div class="cap-hero">
+      <div class="step-inner">
+        <span class="chip chip-dark"><span data-icon="shield"></span>Ruta 4 · Revisa antes de desplegar</span>
+        <h2>Antes de decir «está listo»</h2>
+        <p class="lead">Desplegar es el momento en que todas las decisiones pequeñas se encuentran. La pregunta no es si el equipo está cansado o si la demo se ve bien: es si puedes observar, revertir y explicar lo que va a pasar.</p>
+        <div class="cap-hero-meta">
+          <span class="chip chip-dark"><span data-icon="clock"></span>9 minutos</span>
+          <span class="chip chip-dark"><span data-icon="layers"></span>6 pasos · Actividad y cierre</span>
+          <span class="chip chip-dark"><span data-icon="target"></span>Nivel intermedio</span>
+        </div>
+        <div class="cap-hero-foot">
+          <span class="hero-note">Usa Continuar y Atrás para recorrer la cápsula a tu ritmo.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · La puerta de salida ============ -->
+  <section class="step" data-step data-label="La puerta">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">01</span><span class="t">La puerta</span></div>
+      <h2>Cuatro cosas que deben estar resueltas.</h2>
+      <p class="lead">Un despliegue seguro no depende de una sola herramienta. Depende de que cuatro condiciones básicas estén en su lugar antes de abrir la puerta: entornos separados, datos de prueba, observabilidad y reversibilidad.</p>
+      <p>Los entornos separados evitan que una prueba toque producción por accidente. Los datos de prueba evitan que la información real de clientes termine en un ambiente menos controlado. La observabilidad permite saber qué está pasando cuando algo empieza a fallar. Y la reversibilidad permite volver atrás sin improvisar a las dos de la mañana.</p>
+      <p>Ninguna de las cuatro es exótica. Todas se pueden preparar con anticipación, y todas cuestan mucho más si se improvisan durante el incidente.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-icon" data-icon="grid"></div>
+          <h3>Entornos separados</h3>
+          <p>Desarrollo, pruebas y producción con configuraciones distintas y accesos distintos. Una prueba no debería poder escribir en la base real.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="database"></div>
+          <h3>Datos de prueba, no reales</h3>
+          <p>Datos sintéticos o anonimizados. Usar datos reales en pruebas necesita una justificación, controles y autorizaciones específicos; para aprender y desarrollar, prioriza datos ficticios o adecuadamente anonimizados.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="eye"></div>
+          <h3>Logs y alertas</h3>
+          <p>Saber qué pasó, cuándo y con qué impacto. Sin secretos ni datos personales en el texto del log.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" data-icon="refresh"></div>
+          <h3>Backup y rollback</h3>
+          <p>Una copia que se puede restaurar y un regreso probado. Un rollback que nunca se ejecutó no es un plan: es una esperanza.</p>
+        </article>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-icon" data-icon="bolt"></div>
+        <div>
+          <h3>Las banderas de funcionalidad ayudan, pero no sustituyen</h3>
+          <p>Poder apagar una función sin desplegar de nuevo reduce el impacto de un error. No reemplaza el rollback ni las pruebas: si el cambio tocó la base de datos o los permisos, apagar la bandera puede no ser suficiente para volver al estado anterior.</p>
+        </div>
+      </div>
+    <details class="course-glossary"><summary>Palabras que aparecen en esta cápsula</summary><dl><div><dt>Producción</dt><dd>Entorno donde la solución presta el servicio real.</dd></div><div><dt>Log</dt><dd>Registro de eventos de un sistema.</dd></div><div><dt>Rollback</dt><dd>Procedimiento para revertir un cambio.</dd></div><div><dt>Backup</dt><dd>Copia de seguridad; restaurarla y revertir un cambio son operaciones diferentes.</dd></div></dl></details></div>
+  </section>
+
+  <!-- ============ 3 · Go/no-go ============ -->
+  <section class="step" data-step data-label="La decisión">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">02</span><span class="t">La decisión</span></div>
+      <h2>La decisión de salida puede ser esperar.</h2>
+      <p class="lead">La reunión de salida no es una ceremonia para confirmar lo que ya se decidió. Es el momento de mirar la evidencia y aceptar que la respuesta puede ser esperar.</p>
+      <p>La evidencia incluye las pruebas ejecutadas, los riesgos conocidos, el estado de las dependencias, los permisos del cambio y el plan de incidente. También incluye lo que no se probó: si el rollback no se ejecutó en un entorno equivalente, eso es un riesgo abierto, no un detalle pendiente.</p>
+      <p>El plan de incidente responde tres preguntas antes de que ocurra: quién decide, por dónde se comunica y cómo se revierte. La vocería importa: durante un incidente, la información sin confirmar circula más rápido que la verdad. Una persona designada, con hechos verificados, evita el ruido y protege a los afectados.</p>
+
+      <div class="card-grid three">
+        <article class="card">
+          <div class="mini">Antes</div>
+          <h3>Documenta</h3>
+          <p>Qué cambia, por qué, quién lo revisó y qué riesgos quedan abiertos. Sin esta base, decidir si se continúa o se espera se apoya en opiniones.</p>
+        </article>
+        <article class="card">
+          <div class="mini">Durante</div>
+          <h3>Observa</h3>
+          <p>Métricas, errores y alertas con responsable. Si algo se sale de lo esperado, se decide con datos, no con nervios.</p>
+        </article>
+        <article class="card">
+          <div class="mini">Después</div>
+          <h3>Revisa</h3>
+          <p>Qué funcionó, qué falló y qué se aprende. Un despliegue sin revisión repite el mismo error en el siguiente.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · Reto ============ -->
+  <section class="step" data-step data-label="Explorar"><div class="step-inner">
+<div class="eyebrow-line"><span class="n">03</span><span class="t">Aprende haciendo</span></div><h2>Observa el tablero antes de una salida.</h2><p class="lead">Abre dos ejemplos de evidencia y observa qué información aporta cada uno a la decisión. No se ejecutan pruebas ni despliegues reales.</p>
+
+<div class="learning-lab" data-activity="release" aria-label="Observa el tablero antes de una salida.">
+<p class="lab-tag">Actividad práctica · Sin límite de tiempo</p>
+<noscript><p>Lee la explicación al final para recorrer este ejemplo.</p></noscript>
+<div data-activity-ui hidden><div class="activity-actions"><button type="button" class="btn btn-ghost btn-sm" data-release-evidence="logs" aria-pressed="false" aria-controls="evidence-logs">Explorar revisión de registros</button><button type="button" class="btn btn-ghost btn-sm" data-release-evidence="rollback" aria-pressed="false" aria-controls="evidence-rollback">Explorar prueba de reversión</button></div>
+<div class="activity-preview" id="evidence-logs" data-evidence-panel="logs" hidden><h3>Ejemplo: revisión de registros</h3><p>El equipo ficticio revisó un registro que incluía un token de sesión, retiró ese valor y comprobó una nueva muestra. Si un token real hubiera quedado expuesto, también habría que gestionar su revocación y el alcance de la exposición.</p></div>
+<div class="activity-preview" id="evidence-rollback" data-evidence-panel="rollback" hidden><h3>Ejemplo: prueba de reversión</h3><p>En un entorno de pruebas equivalente, el equipo ficticio comprobó que puede volver a la versión anterior y verificó el estado de los datos. Registró el resultado, las limitaciones y quién ejecutaría la reversión.</p></div><div class="activity-release-lights"><div data-release-logs></div><div data-release-rollback></div></div><div class="activity-preview"><h3 data-release-title></h3><p data-release-text></p></div><div class="activity-actions"><button type="button" class="btn btn-ghost btn-sm" data-activity-reset>Reiniciar actividad</button></div><p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-activity-live></p></div>
+<details class="lab-explanations"><summary>Leer la explicación de la actividad</summary><ul><li><strong>Explora las evidencias</strong><p>Abre los dos ejemplos para ver qué se revisaría antes de decidir una salida.</p></li><li><strong>Reevalúa con responsables</strong><p>Los ejemplos no ejecutan pruebas reales ni autorizan una publicación.</p></li></ul></details>
+<p class="lab-note">Es una demostración con ejemplos ficticios. Puedes reiniciarla; no modifica tus archivos ni guarda los cambios.</p>
+<script type="application/json" data-activity-config>{}</script>
+</div></div></section>
+
+  <!-- ============ 5 · Aplicar ============ -->
+  <section class="step" data-step data-label="Aplicar">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">04</span><span class="t">Tu salida</span></div>
+      <h2>Llévalo a tu trabajo.</h2>
+      <p class="lead">Estas recomendaciones te ayudan a aplicar lo aprendido cuando aparezca una situación similar en tu trabajo.</p>
+
+      <aside class="takeaway-card" aria-labelledby="takeaway-12"><span class="takeaway-kicker">Para tu día a día</span><h3 id="takeaway-12">Antes de poner una solución en uso, recuerda</h3><ul><li><strong>Revisa la evidencia de las pruebas.</strong><p>Distingue qué se comprobó y qué sigue pendiente.</p></li><li><strong>Comprueba el plan de reversión.</strong><p>Verifica el procedimiento y las responsabilidades en un entorno adecuado.</p></li><li><strong>Evita información sensible en los registros.</strong><p>Los mensajes de seguimiento no deben incluir contraseñas ni tokens.</p></li><li><strong>Reevalúa los riesgos con el equipo responsable.</strong><p>Cerrar una lista no sustituye las aprobaciones ni demuestra que una salida esté autorizada.</p></li></ul></aside>
+
+      <div class="callout callout-good">
+        <div class="callout-icon" data-icon="check-circle"></div>
+        <div>
+          <h3>Posponer a tiempo también puede ser una buena decisión</h3>
+          <p>Posponer un despliegue para cerrar un riesgo no es fracasar: es evitar un incidente. La decisión se documenta, se comunica y se vuelve a evaluar con la evidencia que faltaba. Lo que no se hace es desplegar y esperar que salga bien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · Cierre y quiz ============ -->
+  <section class="step" data-step data-label="Cierre">
+    <div class="step-inner">
+      <div class="eyebrow-line"><span class="n">05</span><span class="t">Cierre</span></div>
+      <h2>Lo que te llevas.</h2>
+
+      <div class="takeaways">
+        <div class="takeaway">
+          <span class="num">1</span>
+          <p><b>Entornos y datos se separan.</b> Producción no es un lugar para probar, y los datos reales no son material de prueba.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">2</span>
+          <p><b>Observa y revierte.</b> Sin logs útiles, alertas y un rollback probado, el equipo no controla el despliegue: lo espera.</p>
+        </div>
+        <div class="takeaway">
+          <span class="num">3</span>
+          <p><b>La decisión de salida se apoya en evidencia.</b> Un «no» documentado y comunicado protege más que un «sí» por cansancio o presión.</p>
+        </div>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <div class="quiz-shell">
+          <div class="quiz-body">
+            <div class="quiz-top">
+              <span class="quiz-count" data-quiz-count></span>
+              <span class="quiz-score" data-quiz-score></span>
+            </div>
+            <div class="quiz-bar"><i></i></div>
+            <p class="quiz-q"></p>
+            <div class="quiz-options"></div>
+            <div class="quiz-feedback"></div>
+            <div class="quiz-next"><button class="btn" type="button" data-quiz-next style="visibility:hidden">Siguiente</button></div>
+          </div>
+          <div class="quiz-result">
+            <div class="result-ring" data-result-ring></div>
+            <div class="result-title" data-result-title></div>
+            <p class="result-sub" data-result-sub></p>
+            <div class="result-actions">
+              <button class="btn btn-ghost" type="button" data-result-retry>Repetir</button>
+              <a class="btn" data-result-next href="../index.html">Volver al inicio</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="bottom-nav" data-auto-nav></nav>
+
+<script id="capsule-config" type="application/json">{
+  "id": "12",
+  "title": "Antes de decir «está listo»",
+  "track": "desarrollo",
+  "minutes": "9",
+  "next": "../index.html",
+  "takeaway": "evalúa evidencias, riesgos y posibilidades de reversión con el equipo responsable antes de autorizar una salida.",
+  "questions": [
+    {
+      "q": "Necesitas probar una función con datos representativos. ¿Qué usas?",
+      "options": [
+        "Una copia de la base de producción",
+        "Los datos reales, pero con la sesión cerrada",
+        "Datos ficticios o adecuadamente anonimizados en un entorno de pruebas autorizado",
+        "Una exportación a tu computador personal"
+      ],
+      "a": 2,
+      "ok": "Los datos de prueba no deben identificar personas ni salir del entorno controlado.",
+      "no": "Copiar producción a pruebas traslada el riesgo. Usa datos sintéticos o anonimizados."
+    },
+    {
+      "q": "¿Cuándo se prueba el rollback?",
+      "options": [
+        "La primera vez que falla un despliegue",
+        "Antes de desplegar, en un entorno equivalente",
+        "Solo si el equipo tiene tiempo",
+        "Nunca: basta con tener un backup"
+      ],
+      "a": 1,
+      "ok": "El rollback se prueba antes; durante el incidente solo se ejecuta lo que ya se validó.",
+      "no": "Un rollback sin probar es una hipótesis. Se valida antes, no durante la crisis."
+    },
+    {
+      "q": "¿Qué NO debería aparecer en los logs?",
+      "options": [
+        "El identificador del evento",
+        "La hora y el resultado",
+        "El token de sesión y los datos personales",
+        "El nombre del servicio"
+      ],
+      "a": 2,
+      "ok": "Los logs deben permitir investigar sin convertirse en una nueva fuente de filtración.",
+      "no": "Tokens y datos personales en logs son una exposición. Registra el evento, no el secreto."
+    },
+    {
+      "q": "Antes de una salida, aparece un riesgo importante sin resolver. ¿Qué corresponde en este caso?",
+      "options": [
+        "Desplegar y monitorear de cerca",
+        "Posponer, documentar el riesgo y volver a evaluar con la evidencia que falta",
+        "Desplegar solo en horario laboral",
+        "Ocultar el riesgo para no frenar el proyecto"
+      ],
+      "a": 1,
+      "ok": "Se documenta el riesgo y se reevalúa con el equipo responsable antes de autorizar la salida.",
+      "no": "Ocultar o minimizar un riesgo abierto traslada el costo al incidente. Se pospone y se documenta."
+    }
+  ]
+}</script>
+
+<script src="../assets/app.js"></script>
+<script src="../assets/experience.js"></script>
+<script src="../assets/activities.js"></script>
+</body>
+</html>
